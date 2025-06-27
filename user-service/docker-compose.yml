@@ -1,5 +1,24 @@
 version: "3.8"
+
 services:
+  user-service:
+    container_name: user-service
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=useradmin
+      - DB_PASSWORD=secret
+      - DB_NAME=userdb
+      - JWT_SECRET=supersecretkey
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+
   db:
     image: postgres:15
     container_name: user_pg
