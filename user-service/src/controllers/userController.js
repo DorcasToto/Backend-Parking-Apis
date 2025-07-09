@@ -84,7 +84,5 @@ const getMyProfile = async (req, res) => {
     }
   };
   
-  module.exports = { registerUser, loginUser, getMyProfile };
   
-
 module.exports = { registerUser, loginUser,getMyProfile };
